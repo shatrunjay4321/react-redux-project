@@ -1,20 +1,21 @@
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux';
+import { actions } from './store/index';
 
 function App() {
     const counter = useSelector((state) => state.counter);
     const dispatch = useDispatch();
 
     const handleIncrease = () => {
-        dispatch({ type: 'inc' });
+        dispatch(actions.handleIncrease());
     };
 
     const handleDecrease = () => {
-      dispatch({ type: 'dec' });
+      dispatch(actions.handleDecrease());
     };
 
     const handleAddition = () => {
-        dispatch({ type: 'add', payload: 10 });
+        dispatch(actions.handleAddition(10));
     }
 
     return (
