@@ -4,18 +4,25 @@ import { useSelector, useDispatch } from 'react-redux';
 function App() {
     const counter = useSelector((state) => state.counter);
     const dispatch = useDispatch();
-    const increase = () => {
+
+    const handleIncrease = () => {
         dispatch({ type: 'inc' });
     };
-    const decrease = () => {
+
+    const handleDecrease = () => {
       dispatch({ type: 'dec' });
     };
+
+    const handleAddition = () => {
+        dispatch({ type: 'add', payload: 10 });
+    }
 
     return (
         <div>
             <div>counter: {counter}</div>
-            <button onClick={increase}>Increase</button>
-            <button onClick={decrease}>Decrease</button>
+            <button onClick={handleIncrease}>Increase</button>
+            <button onClick={handleDecrease}>Decrease</button>
+            <button onClick={handleAddition}>Add by 10</button>
         </div>
     );
 }
